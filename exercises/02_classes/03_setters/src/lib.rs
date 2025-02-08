@@ -19,7 +19,18 @@ impl Item {
             n_visits: 0,
         }
     }
+    #[getter]
+    fn name(&mut self) -> String {
+        self.n_visits += 1;
+        self.name.clone()
+    }
+    #[getter]
+    fn price(&mut self) -> u64 {
+        self.n_visits += 1;
+        self.price
+    }
 }
+
 
 #[pymodule]
 fn setters(m: &Bound<'_, PyModule>) -> PyResult<()> {
